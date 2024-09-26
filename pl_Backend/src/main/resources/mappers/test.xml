@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dadokdadok.myapp.dadoktest.InputDTO">
+
+    <!-- Select -->
+    <select id="findInput" resultType="String">
+        SELECT output FROM inputs WHERE output = #{output}
+    </select>
+
+    <!-- Insert -->
+    <insert id="addInput" parameterType="String">
+        INSERT INTO inputs (input, output) VALUES (concat(#{output}, 'aa'), #{output})
+    </insert>
+
+    <!-- Update -->
+    <update id="updateInput" parameterType="String">
+        UPDATE inputs SET output = #{output} WHERE output = #{output}
+    </update>
+
+    <!-- Delete -->
+    <delete id="deleteInput" parameterType="String">
+        DELETE FROM inputs WHERE output = #{output}
+    </delete>
+
+
+</mapper>
