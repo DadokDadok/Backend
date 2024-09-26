@@ -1,14 +1,18 @@
 package com.dadokdadok.myapp.dadoktest;
 
-public class InputDTO {
-    private String input;
+import jakarta.persistence.MappedSuperclass;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
-    // Getter와 Setter
-    public String getInput() {
-        return input;
-    }
+@Mapper
+public interface InputDTO {
 
-    public void setInput(String input) {
-        this.input = input;
-    }
+//    select, insert, update, delete
+
+    String findInput(@Param("output") String output);
+    void addInput(@Param("output") String output);
+    void updateInput(@Param("output") String output);
+    void deleteInput(@Param("output") String output);
+
+
 }
