@@ -8,5 +8,5 @@ import java.util.List;
 
 @Mapper
 public interface MapMapper {
-    List<MapVO> selectNearbyMe(@Param("latitude") Double latitude, @Param("longitude") Double longitude);
+    List<MapVO> selectNearbyMe(@Param("latitude") Double latitude, @Param("longitude") Double longitude, @Param("type") String type);
 }
