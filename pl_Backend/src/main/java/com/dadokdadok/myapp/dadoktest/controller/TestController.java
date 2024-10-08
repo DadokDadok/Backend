@@ -1,9 +1,10 @@
-package com.dadokdadok.myapp.dadoktest;
+package com.dadokdadok.myapp.dadoktest.controller;
 
 
+import com.dadokdadok.myapp.dadoktest.dao.InputDAO;
+import com.dadokdadok.myapp.dadoktest.vo.InputVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
@@ -12,8 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class TestController {
 
-    @Autowired
-    private InputDTO inputDTO;
+    private final InputDAO inputDAO;
 
     @GetMapping("/test/{testId}")
     public String testGet() {
@@ -28,21 +28,21 @@ public class TestController {
 
     @GetMapping("get/{output}")
     public String getInput(@PathVariable String output) {
-        return inputDTO.findInput(output);
+        return inputDAO.findInput(output);
     }
 
     @PostMapping("post/{output}")
     public void createInput(@PathVariable String output) {
-        inputDTO.addInput(output);
+        inputDAO.addInput(output);
     }
 
     @PutMapping("put/{output}")
     public void updateInput(@PathVariable String output) {
-        inputDTO.updateInput(output);
+        inputDAO.updateInput(output);
     }
 
     @DeleteMapping("delete/{output}")
     public void deleteInput(@PathVariable String output) {
-        inputDTO.deleteInput(output);
+        inputDAO.deleteInput(output);
     }
 }

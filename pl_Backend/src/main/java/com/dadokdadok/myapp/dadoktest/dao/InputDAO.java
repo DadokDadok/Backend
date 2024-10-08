@@ -1,11 +1,10 @@
-package com.dadokdadok.myapp.dadoktest;
+package com.dadokdadok.myapp.dadoktest.dao;
 
-import jakarta.persistence.MappedSuperclass;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 @Mapper
-public interface InputDTO {
+public interface InputDAO {
 
 //    select, insert, update, delete
 
