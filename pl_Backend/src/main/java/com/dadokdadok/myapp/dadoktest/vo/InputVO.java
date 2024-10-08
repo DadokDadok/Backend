@@ -1,4 +1,4 @@
-package com.dadokdadok.myapp.dadoktest;
+package com.dadokdadok.myapp.dadoktest.vo;
 
 
 import lombok.*;
