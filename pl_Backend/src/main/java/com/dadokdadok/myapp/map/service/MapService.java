@@ -46,7 +46,7 @@ public class MapService {
     }
 
     // 4. 내 위치 기준
-    public List<MapVO> getBooksByMe(Double latitude, Double longitude) {
-        return mapper.selectNearbyMe(latitude, longitude);
+    public List<MapVO> getBooksByMe(Double latitude, Double longitude, String type) {
+        return mapper.selectNearbyMe(latitude, longitude, type);
     }
 }

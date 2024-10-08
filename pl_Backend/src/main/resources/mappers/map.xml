@@ -31,8 +31,10 @@
         SIN(RADIANS(#{latitude})) * SIN(RADIANS(latitude))
         )) AS distance
         FROM booksinfo
+        WHERE (#{type} IS NULL OR type = #{type})  -- 타입이 선택되지 않았을 경우를 처리
         HAVING <![CDATA[ distance <= 5 ]]>
         ORDER BY distance ASC
         LIMIT 10
     </select>
 </mapper>
+

@@ -42,8 +42,9 @@ public class MapController {
     @GetMapping("get/books-me")
     public List<MapVO> getBooksByAddrAndType(
             @RequestParam Double lat,
-            @RequestParam Double lon){
-        return mapService.getBooksByMe(lat, lon);
+            @RequestParam Double lng,
+            @RequestParam(required = false) String type){
+        return mapService.getBooksByMe(lat, lng, type);
     }
 
 }
