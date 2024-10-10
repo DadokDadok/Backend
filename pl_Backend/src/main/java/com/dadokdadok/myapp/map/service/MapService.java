@@ -49,4 +49,9 @@ public class MapService {
     public List<MapVO> getBooksByMe(Double latitude, Double longitude, String type) {
         return mapper.selectNearbyMe(latitude, longitude, type);
     }
+
+    // 5. 단어 검색
+    public List<MapVO> getBooksBySearch(String word) {
+        return mapper.searchBook(word);
+    }
 }
