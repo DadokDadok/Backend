@@ -26,12 +26,7 @@ public class MapController {
     @Autowired
     private MapService mapService;
 
-    @GetMapping("get-book/{bookId}")
-    public Optional<MapVO> getOneBook(@PathVariable Long bookId) {
-        return mapService.findOneBook(bookId);
-    }
-
-    @GetMapping("get/books")
+    @GetMapping("/books")
     public List<MapVO> getBooksByAddrAndType(
             @RequestParam String cityDo,
             @RequestParam(required = false) String siGunGu,
@@ -39,12 +34,18 @@ public class MapController {
         return mapService.getBooksByAddrAndType(cityDo, siGunGu, type);
     }
 
-    @GetMapping("get/books-me")
+    @GetMapping("/books-me")
     public List<MapVO> getBooksByAddrAndType(
             @RequestParam Double lat,
             @RequestParam Double lng,
             @RequestParam(required = false) String type){
         return mapService.getBooksByMe(lat, lng, type);
+    }
+
+    @GetMapping("/search-book")
+    public List<MapVO> getSearchBook(
+            @RequestParam String word){
+        return mapService.getBooksBySearch(word);
     }
 
 }
